@@ -23,4 +23,4 @@ Upon opening the game, the user will be asked to give BabyGandalph a new name. T
 
 ## Wireframe of the page layout
 
-![Wireframe layout of BabyGandalph](https://imgur.com/a/qe3lg9V)
+![Wireframe layout of BabyGandalph](https://i.imgur.com/RIKEwV6.jpeg)
