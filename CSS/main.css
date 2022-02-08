@@ -3,8 +3,13 @@
 }
 
 body {
-    margin: 0;
+    margin: 0px;
     background-color: skyblue;
+    padding: 0;
+    
+   
+    
+    
 }
 
 .top {
@@ -14,6 +19,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    
     
     
 }
@@ -41,7 +47,7 @@ body {
 .display {
     background-color: black;
     width: 50vw;
-    height: 400px;
+    height: 600px;
     display: flex;
     justify-content: center;
     margin: 0 auto;
@@ -58,6 +64,40 @@ body {
 .button {
     margin: 0px 70px;
     padding: 15px 40px;
+    
 
 }
 
+.progress_bars {
+   
+    display: flex;
+    justify-content: center;
+    background-color: springgreen;
+    
+    
+}
+
+.bar {
+    height: 30px;
+    width: 300px;
+    
+    
+}
+
+#skill {
+    padding-bottom: 10px;
+    
+}
+
+.attribute_bars {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -5px;
+}
+
+.attribute_labels {
+    display: flex;
+    flex-direction: column;
+    
+}
