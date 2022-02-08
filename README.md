@@ -23,4 +23,4 @@ Upon opening the game, the user will be asked to give BabyGandalph a new name. T
 
 ## Wireframe of the page layout
 
-<img src="https://wireframe.cc/UVu1CK" alt="Page Layout">
+![BGGame](/assets/babygandalphWF.jpeg)
