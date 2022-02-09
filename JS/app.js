@@ -1,5 +1,10 @@
 console.log("testing");
 let currentWizard = "";
+
+
+function introduction() {
+    $(".top").append("<div class=instructions><h1 class=instructions_heading>Greetings there youngster!</h1></div>");
+}
 class Wizard {
     constructor(name, favoriteFood, skill, age) {
         this.name = name;
