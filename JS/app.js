@@ -1,5 +1,5 @@
 console.log("testing");
-const currentWizard = new Wizard("currentWizard", "pizza", 0, 0);
+let currentWizard = "";
 class Wizard {
     constructor(name, favoriteFood, skill, age) {
         this.name = name;
@@ -56,8 +56,8 @@ class Wizard {
 
 }
 
+currentWizard = new Wizard("Baby Gandalph", "pizza", 0, 0);
 
-const currentWizard = new Wizard("currentWizard", "pizza", 0, 0);
 
 class MatureWizard extends Wizard {
     constructor(){

@@ -6,13 +6,20 @@ body {
     margin: 0px;
     background-color: skyblue;
     padding: 0;
-    background-image: url("https://cdn.pixabay.com/photo/2020/01/12/17/31/middle-earth-4760561_960_720.jpg");
+    /* background-image: url("https://cdn.pixabay.com/photo/2020/01/12/17/31/middle-earth-4760561_960_720.jpg");
     background-size: cover;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; */  
     
-   
-    
-    
+}
+
+
+
+.background_map {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+    margin-bottom: 0;
 }
 
 .top {
@@ -54,8 +61,8 @@ body {
 
 .display {
     background-color: black;
-    max-height: 50%;
-    max-width: 50%;
+    max-height: 40%;
+    max-width: 40%;
     height: auto;
     width: auto;
     display: flex;
