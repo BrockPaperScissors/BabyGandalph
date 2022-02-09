@@ -6,6 +6,9 @@ body {
     margin: 0px;
     background-color: skyblue;
     padding: 0;
+    background-image: url("https://cdn.pixabay.com/photo/2020/01/12/17/31/middle-earth-4760561_960_720.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
     
    
     
@@ -13,7 +16,7 @@ body {
 }
 
 .top {
-    background-color: aqua;
+    /* background-color: aqua; */
     width: 100vw;
     height: 100px;
     display: flex;
@@ -25,7 +28,7 @@ body {
 }
 
 .title_container {
-    background-color: cadetblue;
+    /* background-color: cadetblue; */
     width: 100vw;
     height: 50px;
     display: flex;
@@ -35,22 +38,30 @@ body {
 }
 
 .title {
-    background-color: gray;
+    font-family: 'Courgette', cursive;
+    color: rgb(252, 217, 103);
+    text-shadow: 2px 2px 0 #2c2c2c, 4px 4px 0 #303030;
+    font-size: 50px;
+    text-decoration-line: underline;
     width: 850px;
-    height: 25px;
+    height: 45px;
     text-align: center;
     align-items: center;
     background-size: auto;
+    margin-top: 10px;
 
 }
 
 .display {
     background-color: black;
-    width: 50vw;
-    height: 600px;
+    max-height: 50%;
+    max-width: 50%;
+    height: auto;
+    width: auto;
     display: flex;
     justify-content: center;
     margin: 0 auto;
+    border: 2px solid rgba(252, 217, 103, 1);
 }
 
 .buttons_container {
@@ -58,12 +69,17 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: tan;  
+    /* background-color: tan;   */
 }
 
 .button {
     margin: 0px 70px;
-    padding: 15px 40px;
+    padding: 20px 70px;
+    font-size: 36px;
+    text-shadow: 2px 2px 0 #2c2c2c, 4px 4px 0 #303030;
+    color: rgba(252, 217, 103, 1);
+    background-color: tan;
+    font-family: 'Courgette', cursive;
     
 
 }
@@ -72,32 +88,46 @@ body {
    
     display: flex;
     justify-content: center;
-    background-color: springgreen;
+    /* background-color: springgreen; */
+  
     
     
 }
 
 .bar {
-    height: 30px;
+    height: 40px;
     width: 300px;
+    margin-left: 30px;
+    
+    
+    
     
     
 }
 
-#skill {
-    padding-bottom: 10px;
-    
-}
 
 .attribute_bars {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: -5px;
 }
 
 .attribute_labels {
+    font-family: 'Courgette', cursive;
+    font-size: 24px;
+    font-weight: bold;
+    color: #000000;
+    text-shadow: 2px 2px 0 #2c2c2c, 4px 4px 0 #303030;
     display: flex;
     flex-direction: column;
+    color: rgba(252, 217, 103, 1);
+    
     
 }
+
+
+
+
+
+
+/* will be used later https://cdn.pixabay.com/photo/2019/11/05/12/02/lego-4603354_960_720.jpg */

@@ -1,5 +1,5 @@
 console.log("testing");
-
+const currentWizard = new Wizard("currentWizard", "pizza", 0, 0);
 class Wizard {
     constructor(name, favoriteFood, skill, age) {
         this.name = name;
@@ -12,14 +12,12 @@ class Wizard {
    
     clickFeed(){
         
-        console.log(babyGandalph.fatigue, "fatigue");
-        console.log(babyGandalph.age, "age");
-        if(babyGandalph.hunger >= 50){
-            babyGandalph.hunger -= 50;
-        }else {
-            babyGandalph.hunger = 0;
-        }
-        console.log(babyGandalph.skill, "hunger");
+        
+        currentWizard.fatigue += 35;
+        $("#fatigue_bar").attr("value", currentWizard.fatigue);
+        console.log(currentWizard.fatigue, "fatigue");
+        console.log(currentWizard.skill, "skill");
+        console.log(currentWizard.age, "age");
 
 
 
@@ -28,38 +26,48 @@ class Wizard {
     
     clickTrain(){
         // console.log("train works");
-        babyGandalph.skill += 1;
-        console.log(babyGandalph.fatigue, "fatigue");
-        console.log(babyGandalph.skill, "skill");
-        if(babyGandalph.fatigue >= 98){
-            babyGandalph.age += 3;
-            babyGandalph.fatigue = 0;
+        currentWizard.skill += 1;
+        if(currentWizard.fatigue >= 98){
+            currentWizard.age += 3;
+            currentWizard.fatigue = 0;
         }else{
-            babyGandalph.fatigue += 2;
+            currentWizard.fatigue += 7;
         }
-        console.log(babyGandalph.age, "hunger");
+        console.log(currentWizard.fatigue, "fatigue");
+        console.log(currentWizard.skill, "skill");
+        console.log(currentWizard.age, "age");
+        $("#skill_bar").attr("value", currentWizard.skill);
+        $("#fatigue_bar").attr("value", currentWizard.fatigue);
+
+        if(this.skill === 100) {
+
+        }
     }
     
     clickSlumber(){
         // console.log("slumber works");
-        babyGandalph.fatigue = 0;
-        babyGandalph.age += 1;
-        console.log(babyGandalph.fatigue, "fatigue");
-        console.log(babyGandalph.age, "skill");
-        console.log(babyGandalph.skill, "hunger");
+        currentWizard.fatigue = 0;
+        currentWizard.age += 1;
+        console.log(currentWizard.fatigue, "fatigue");
+        console.log(currentWizard.skill, "skill");
+        console.log(currentWizard.age, "age");
+        $("#fatigue_bar").attr("value", currentWizard.fatigue);
     }
-
 
 }
 
 
+const currentWizard = new Wizard("currentWizard", "pizza", 0, 0);
 
-const babyGandalph = new Wizard("BabyGandalph", "pizza", 0, 0);
-$("#skill_bar").attr("value", 10);
+class MatureWizard extends Wizard {
+    constructor(){
+
+    }
+}
 
 
 
-$("#feed").on("click", babyGandalph.clickFeed);
-$("#train").on("click", babyGandalph.clickTrain);
-$("#sleep").on("click", babyGandalph.clickSlumber);
+$("#feed").on("click", currentWizard.clickFeed);
+$("#train").on("click", currentWizard.clickTrain);
+$("#sleep").on("click", currentWizard.clickSlumber);
 

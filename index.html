@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+        </style>
     <link rel="stylesheet" href="css/main.css">
     <script
-  src="https://code.jquery.com/jquery-3.6.0.min.js"
-  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-  crossorigin="anonymous"></script>
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous"></script>
     <script src="JS/app.js" defer></script>
     <title>Document</title>
 </head>
@@ -21,13 +24,15 @@
     </header>
 
     <!-- display of Baby Gandalph -->
-    <main class="display"></main>
+    <main class="display_container">
+        <img src="https://cdn.pixabay.com/photo/2017/01/30/16/50/wizard-2021410_960_720.jpg" alt="Picture of Lego Gandalph" class="display">
+    </main>
 
 <!-- Action buttons -->
     <nav class="buttons_container">
         <button class="button" id="feed">Eat</button>
-        <button class="button" id="train">Train</button>
-        <button class="button" id="sleep">Slumber</button>
+        <button class="button" id="train">Practice</button>
+        <button class="button" id="sleep">Sleep</button>
     </nav>
 
     <!-- Skill and Fatigue bars -->
@@ -35,12 +40,14 @@
         <div class="attributes">
             <div class="progress_bars">
                 <div class="attribute_labels">
-                    <label for="skill_bar" id="skill">Skill:</label>
-                    <label for="fatigue_bar" id="fatigue">Fatigue:</label>             
+                    <label for="skill_bar" id="skill">Skill: </label>
+                    <label for="fatigue_bar" id="fatigue">Fatigue: </label>
+                    <!-- <label for="hunger_bar" id="hunger">Hunger: </label>              -->
                 </div>
                 <div class="attribute_bars">
-                    <progress id="skill_bar" class="bar" value="50" max="100"></progress>              
-                    <progress id="fatigue_bar" class="bar" value="50" max="100"></progress>
+                    <progress id="skill_bar" class="bar" value="0" max="100"></progress>              
+                    <progress id="fatigue_bar" class="bar" value="0" max="100"></progress>
+                    <!-- <progress id="hunger_bar" class="bar" value="0" max="100"></progress> -->
                 </div>
             </div>
         </div>
