@@ -9,6 +9,7 @@ let hunger = 0;
 let wizardForm = [];
 let k = 0;
 let hungerInterval = "";
+let evolutionLevel = "";
 
 
 function introduction() {
@@ -30,6 +31,7 @@ class Wizard {
         this.fatigue = 0;
         this.hunger = 0;
         this.level = 0;
+        this.evolutionLevel = 2;
     }
     
     clickFeed(){
@@ -68,7 +70,7 @@ class Wizard {
     clickTrain(){
          console.log("train works");
          if(currentWizard.skill >= 10) {
-            if(currentWizard.level > 3) {
+            if(currentWizard.level > currentWizard.evolutionLevel) {
                 wizardEvolve();
                 console.log("evolution success!", currentWizard); 
             }
@@ -214,38 +216,39 @@ function wizardEvolve() {
 }
 
 class MatureWizard extends Wizard {
-    constructor(name, favoriteFood, age, skill, fatigue, hunger, level){
-        super(name, favoriteFood, age, skill, fatigue, hunger, level);
+    constructor(name, favoriteFood, age, skill, fatigue, hunger, level, evolutionLevel){
+        super(name, favoriteFood, age, skill, fatigue, hunger, level, evolutionLevel);
     }
-    castFirestorm(){
-        console.log("train works");
-       currentWizard.skill += 1;
+    evolutionLevel = 5;
+    // castFirestorm(){
+    //     console.log("train works");
+    //    currentWizard.skill += 1;
        
-       if(currentWizard.fatigue >= 10){
-           currentWizard.age += 7;
-           currentWizard.fatigue = 0;
-       }else{
-           currentWizard.fatigue += 2;
-       }
-       console.log(currentWizard.fatigue, "fatigue");
-       console.log(currentWizard.skill, "skill");
-       console.log(currentWizard.age, "age");
-           $("#skill_bar").attr("value", currentWizard.skill);
-           $("#skill").text(`Skill: ${currentWizard.level}`);
-           $("#fatigue_bar").attr("value", currentWizard.fatigue);
-           $("#fatigue").text(`Fatigue: ${currentWizard.fatigue}`);
-           $("#age_bar").attr("value", currentWizard.age);
-           $("#age").text(`Age: ${currentWizard.age}`);
+    //    if(currentWizard.fatigue >= 10){
+    //        currentWizard.age += 7;
+    //        currentWizard.fatigue = 0;
+    //    }else{
+    //        currentWizard.fatigue += 2;
+    //    }
+    //    console.log(currentWizard.fatigue, "fatigue");
+    //    console.log(currentWizard.skill, "skill");
+    //    console.log(currentWizard.age, "age");
+    //        $("#skill_bar").attr("value", currentWizard.skill);
+    //        $("#skill").text(`Skill: ${currentWizard.level}`);
+    //        $("#fatigue_bar").attr("value", currentWizard.fatigue);
+    //        $("#fatigue").text(`Fatigue: ${currentWizard.fatigue}`);
+    //        $("#age_bar").attr("value", currentWizard.age);
+    //        $("#age").text(`Age: ${currentWizard.age}`);
     
-       if(this.skill > 10) {
-          currentWizard.level++;
-          console.log("level up!");
-          if(this.level > 9){
-              currentWizard = new MatureWizard
-          }
-       }
+    //    if(this.skill > 10) {
+    //       currentWizard.level++;
+    //       console.log("level up!");
+    //       if(this.level > 9){
+    //           currentWizard = new MatureWizard
+    //       }
+    //    }
 
-    }
+    // }
     
 }
 
