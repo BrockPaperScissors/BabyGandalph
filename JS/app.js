@@ -2,7 +2,7 @@ console.log("testing");
 let currentWizard = "";
 let newName = 'joe schmoe'
 let favoriteFood = '' 
-let skill = ""
+let skillClass = ""
 let age = 0;
 
 
@@ -32,11 +32,12 @@ class Wizard {
         console.log(currentWizard.fatigue, "fatigue");
         console.log(currentWizard.skill, "skill");
         console.log(currentWizard.age, "age");
+
         
     }
     
     clickTrain(){
-        // console.log("train works");
+         console.log("train works");
         currentWizard.skill += 1;
         if(currentWizard.fatigue >= 98){
             currentWizard.age += 3;
@@ -49,16 +50,18 @@ class Wizard {
         console.log(currentWizard.age, "age");
         $("#skill_bar").attr("value", currentWizard.skill);
         $("#fatigue_bar").attr("value", currentWizard.fatigue);
+
         
-        // if(this.skill === 100) {
+        
+        if(this.skill === 100) {
 
         
             
-        // }
+        }
     }
     
     clickSlumber(){
-        // console.log("slumber works");
+         console.log("slumber works");
         currentWizard.fatigue = 0;
         currentWizard.age += 1;
         console.log(currentWizard.fatigue, "fatigue");
@@ -76,9 +79,9 @@ introduction();
 function getInput() {
     newName = window.prompt("What is your name young wizard-to-be??");
     favoriteFood = window.prompt("what is your favorite food?");
-    skill = window.prompt("Do you choose fire, lightning, or ice?");
+    skillClass = window.prompt("Do you choose fire, lightning, or ice?");
 
-    currentWizard = new Wizard(newName, favoriteFood, skill, 0);
+    // currentWizard = new Wizard(newName, favoriteFood, 0, 0);
     $(".instructions").slideUp(1000);
 }
 
@@ -90,10 +93,12 @@ class MatureWizard extends Wizard {
 
 
 
-function buttonClicked() {
-    console.log("click!");
-}
+// function buttonClicked() {
+//     console.log("click!");
+// }
 
+
+currentWizard = new Wizard("name", "pizza", 0, 0);
 
 
 $("#feed").on("click", currentWizard.clickFeed);

@@ -24,3 +24,10 @@ Upon opening the game, the user will be asked to give BabyGandalph a new name. T
 ## Wireframe of the page layout
 
 ![Wireframe layout of BabyGandalph](https://i.imgur.com/RIKEwV6.jpeg)
+
+
+
+## Source Citations:
+imageB - https://pixabay.com/photos/middle-earth-lord-of-the-rings-4760561/ submitted by user: marcoianna3
+
+imageC - https://pixabay.com/photos/wizard-gandalf-lego-magic-sorcerer-2021410/ submitted by user: aitoff
