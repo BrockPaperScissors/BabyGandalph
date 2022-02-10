@@ -8,6 +8,7 @@ let level = 0;
 let hunger = 0;
 let wizardForm = [];
 let k = 0;
+let hungerInterval = "";
 
 
 function introduction() {
@@ -41,8 +42,15 @@ class Wizard {
 
         currentWizard.fatigue += 4;
         if(currentWizard.fatigue >= 10){
+            addClass();
             currentWizard.age += 7;
             currentWizard.fatigue = 0;
+         
+        }
+        if (currentWizard.age >= 100) {
+            currentWizard.age = 100;
+            clearInterval(hungerInterval);
+            window.alert("Your skills need more work. The Wizard Sanctum's doors remain locked at this time. Try again later.")
         }
             
         console.log(currentWizard.fatigue, "fatigue");
@@ -60,7 +68,7 @@ class Wizard {
     clickTrain(){
          console.log("train works");
          if(currentWizard.skill >= 10) {
-            if(currentWizard.level > 4) {
+            if(currentWizard.level > 3) {
                 wizardEvolve();
                 console.log("evolution success!", currentWizard); 
             }
@@ -71,10 +79,17 @@ class Wizard {
         currentWizard.skill += 1;
         
         if(currentWizard.fatigue >= 10){
+            addClass();
             currentWizard.age += 7;
             currentWizard.fatigue = 0;
         }else{
             currentWizard.fatigue += 2;
+        }
+
+        if (currentWizard.age >= 100) {
+            currentWizard.age = 100;
+            clearInterval(hungerInterval);
+            window.alert("Your skills need more work. The Wizard Sanctum's doors remain locked at this time. Try again later.")
         }
         console.log(currentWizard.fatigue, "fatigue");
         console.log(currentWizard.skill, "skill");
@@ -86,10 +101,7 @@ class Wizard {
             $("#age_bar").attr("value", currentWizard.age);
             $("#age").text(`Age: ${currentWizard.age}`);
      
-        if(this.level > 9) {
-    
-            
-        }
+
     }
     
     clickSlumber(){
@@ -99,8 +111,13 @@ class Wizard {
         currentWizard.hunger += 2;
 
             if(currentWizard.hunger === 10) {
+                addClass();
                 currentWizard.age += 7;
                 currentWizard.hunger = 0;
+            }
+            if (currentWizard.age >= 100) {
+                currentWizard.age = 100;
+                window.alert("Your skills need more work. The Wizard Sanctum's doors remain locked at this time. Try again later.")
             }
         console.log(currentWizard.fatigue, "fatigue");
         console.log(currentWizard.skill, "skill");
@@ -118,8 +135,15 @@ class Wizard {
         $("#hunger_bar").attr("value", currentWizard.hunger);
         $("#hunger").text(`Hunger: ${currentWizard.hunger}`);
         if(currentWizard.hunger === 10) {
+            addClass()
             currentWizard.age += 7;
             currentWizard.hunger = 0;
+            if (currentWizard.age >= 100) {
+                currentWizard.age = 100;
+                clearInterval(hungerInterval);
+                window.alert("Your skills need more work. The Wizard Sanctum's doors remain locked at this time. Try again later.")
+            
+            }
             $("#age_bar").attr("value", currentWizard.age);
             $("#age").text(`Age: ${currentWizard.age}`);
         }
@@ -131,11 +155,29 @@ class Wizard {
 //Game starts here
 
 introduction();
-// currentWizard = new Wizard(newName, favoriteFood, skill, 0);
+
+function startGame() {
+    $(".how_to_play").slideUp(1000);
+    hungerInterval =setInterval(currentWizard.manageHunger, 1000);
+
+}
+
+function howToPlay() {
+    $(".top").append("<div class=how_to_play><h1 class=htp_heading>First, a few instructions!</h1><p id=wizard_warning>There are a few things to learn before becoming a wizard. In order for the Wizard Sanctum to accept you into their ranks, you must reach a skill level of 10 before your 100th birthday. Careful, time flies when practicing magic! Part of the magic, is going to bed when you are tired. If you let your fatigue go unchecked, you will pass out from exhaustion! Another crucial part of success, is eating when you are hungry! If forget to eat, you will also pass out from the hunger! If you eat when you are tired, you may enter a food coma and also pass out. It is on you to manage your body so that you can train!</p><ul id=list_of_instructions><li class=tip>Eating your favorite food will decrease your hunger bar, but also increase your fatigue!</li><li class=tip>Casting your chosen spell will increase your skill bar, but also increase your fatigue bar!</li><li class=tip>Meditation will reset your fatigue bar, but increase your hunger bar!</li><p id=parting_words>You will evolve to the next level of wizarding at skill levels 3, 5 and 10! If you make it to level 10, the Wizard Sanctum just might offer you an invitation. Good luck!</p><button id=begin_button>Begin Journey</button></div>");
+
+    
+    $("#begin_button").on("click", startGame);
+   
+    
+
+}
 function getInput() {
     newName = window.prompt("What is your name young wizard-to-be??");
     favoriteFood = window.prompt("what is your favorite food?");
     skillClass = window.prompt("Do you choose fire ball, lightning strike, or ice blast?");
+    
+    wizardForm = [new Wizard(newName, favoriteFood, 0, 0)];
+    currentWizard = wizardForm[0];
 
         $("#age").text(`Age: ${currentWizard.age}`);
         $("#fatigue").text(`Fatigue: ${currentWizard.fatigue}`);
@@ -146,16 +188,29 @@ function getInput() {
         $("#sleep").text(`Meditate`);
         $(".title").text(`Baby ${newName}`);
         $(".instructions").slideUp(1000);
-        setInterval(currentWizard.manageHunger, 1000);
+        howToPlay();
+        
+        // $("#start_button").on("click", howToPlay);
 
-        wizardForm = [new Wizard(newName, favoriteFood, 0, 0)];
-        currentWizard = wizardForm[0];
+}
+
+function addClass(){
+    console.log("suffer");
+    $(".display").addClass("animatedPic");
+             
+}
+
+function removeClass() {
+    $(".display").removeClass("animatedPic")
+ 
 }
 
 function wizardEvolve() {
     wizardForm = [new Wizard(newName, favoriteFood, 0, 0), new MatureWizard(newName, favoriteFood, age, skill, fatigue, hunger, level)];
     k += 1;
     currentWizard = wizardForm[k];
+    //Image below from https://pixabay.com/photos/lego-wizard-gandalf-gray-grey-4603354/ submitted by user: aitoff.
+    $(".display").attr("src", "https://cdn.pixabay.com/photo/2019/11/05/12/02/lego-4603354_960_720.jpg");
 }
 
 class MatureWizard extends Wizard {
@@ -191,6 +246,7 @@ class MatureWizard extends Wizard {
        }
 
     }
+    
 }
 
 
@@ -204,7 +260,10 @@ currentWizard = new Wizard("", "", 0, 0);
 
 
 $("#feed").on("click", currentWizard.clickFeed);
+$("#feed").on("click", removeClass);
 $("#train").on("click", currentWizard.clickTrain);
+$("#train").on("click", removeClass);
 $("#sleep").on("click", currentWizard.clickSlumber);
+$("#sleep").on("click", removeClass);
 
 
