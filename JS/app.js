@@ -4,6 +4,7 @@ let newName = 'joe schmoe'
 let favoriteFood = '' 
 let skillClass = ""
 let age = 0;
+let level = 0;
 
 
 function introduction() {
@@ -22,41 +23,50 @@ class Wizard {
         this.skill = skill;
         this.fatigue = 0;
         this.hunger = 0;
+        this.level = 0;
     }
     
     clickFeed(){
         
         
-        currentWizard.fatigue += 35;
+        currentWizard.fatigue += 4;
         $("#fatigue_bar").attr("value", currentWizard.fatigue);
         console.log(currentWizard.fatigue, "fatigue");
         console.log(currentWizard.skill, "skill");
         console.log(currentWizard.age, "age");
+        $("#fatigue").text(`Fatigue: ${currentWizard.fatigue}`);
 
         
     }
     
     clickTrain(){
          console.log("train works");
+         if(currentWizard.skill >= 10) {
+            currentWizard.level++;
+            console.log("level up!");
+            currentWizard.skill = 0;
+         }
         currentWizard.skill += 1;
-        if(currentWizard.fatigue >= 98){
-            currentWizard.age += 3;
+        
+        if(currentWizard.fatigue >= 10){
+            currentWizard.age += 7;
             currentWizard.fatigue = 0;
         }else{
-            currentWizard.fatigue += 7;
+            currentWizard.fatigue += 2;
         }
         console.log(currentWizard.fatigue, "fatigue");
         console.log(currentWizard.skill, "skill");
         console.log(currentWizard.age, "age");
         $("#skill_bar").attr("value", currentWizard.skill);
         $("#fatigue_bar").attr("value", currentWizard.fatigue);
+        $("#fatigue").text(`Fatigue: ${currentWizard.fatigue}`);
+        $("#skill").text(`Skill: ${currentWizard.level}`);
 
         
         
-        if(this.skill === 100) {
-
-        
-            
+        if(this.skill > 10) {
+           currentWizard.level++;
+           console.log("level up!");
         }
     }
     
@@ -68,7 +78,8 @@ class Wizard {
         console.log(currentWizard.skill, "skill");
         console.log(currentWizard.age, "age");
         $("#fatigue_bar").attr("value", currentWizard.fatigue);
-    }
+        $("#fatigue").text(`Fatigue: ${currentWizard.fatigue}`);
+    }   
     
 }
 
@@ -79,8 +90,14 @@ introduction();
 function getInput() {
     newName = window.prompt("What is your name young wizard-to-be??");
     favoriteFood = window.prompt("what is your favorite food?");
-    skillClass = window.prompt("Do you choose fire, lightning, or ice?");
+    skillClass = window.prompt("Do you choose fire ball, lightning strike, or ice blast?");
 
+        $("#fatigue").text(`Fatigue: ${currentWizard.fatigue}`);
+        $("#skill").text(`Skill: ${currentWizard.level}`);
+        $("#feed").text(`Eat ${favoriteFood}`);
+        $("#train").text(`Cast ${skillClass} `);
+        $("#sleep").text(`Meditate`);
+        $(".title").text(`Baby ${newName}`);
     // currentWizard = new Wizard(newName, favoriteFood, 0, 0);
     $(".instructions").slideUp(1000);
 }
