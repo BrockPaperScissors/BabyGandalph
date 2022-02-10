@@ -20,6 +20,7 @@ body {
     position: absolute;
     z-index: -1;
     margin-bottom: 0;
+    bottom: 0;
 }
 
 .top {
@@ -61,8 +62,8 @@ body {
 
 .display {
     background-color: black;
-    max-height: 40%;
-    max-width: 40%;
+    max-height: 35%;
+    max-width: 35%;
     height: auto;
     width: auto;
     display: flex;
@@ -87,7 +88,7 @@ body {
     color: rgba(252, 217, 103, 1);
     background-color: tan;
     font-family: 'Courgette', cursive;
-    
+    border: 3px solid rgba(252, 217, 103, 1);
 
 }
 
