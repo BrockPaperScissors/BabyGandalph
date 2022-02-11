@@ -10,6 +10,7 @@ let wizardForm = [];
 let k = 0;
 let hungerInterval = "";
 let evolutionLevel = "";
+let charTitle = "";
 
 
 function introduction() {
@@ -32,6 +33,7 @@ class Wizard {
         this.hunger = 0;
         this.level = 0;
         this.evolutionLevel = 2;
+        this.charTitle = "Baby ";
     }
     
     clickFeed(){
@@ -227,10 +229,11 @@ function wizardEvolve() {
 }
 
 class MatureWizard extends Wizard {
-    constructor(name, favoriteFood, age, skill, fatigue, hunger, level, evolutionLevel){
-        super(name, favoriteFood, age, skill, fatigue, hunger, level, evolutionLevel);
+    constructor(name, favoriteFood, age, skill, fatigue, hunger, level, evolutionLevel, charTitle){
+        super(name, favoriteFood, age, skill, fatigue, hunger, level, evolutionLevel, charTitle);
     }
     evolutionLevel = 5;
+    charTitle = "Adept ";
     // castFirestorm(){
     //     console.log("train works");
     //    currentWizard.skill += 1;
@@ -264,20 +267,22 @@ class MatureWizard extends Wizard {
 }
 
 class GrandWizard extends MatureWizard {
-    constructor(name, favoriteFood, age, skill, fatigue, hunger, level, evolutionLevel){
-        super(name, favoriteFood, age, skill, fatigue, hunger, level, evolutionLevel);
+    constructor(name, favoriteFood, age, skill, fatigue, hunger, level, evolutionLevel, charTitle){
+        super(name, favoriteFood, age, skill, fatigue, hunger, level, evolutionLevel, charTitle);
     }
 
     evolutionLevel = 9;
+    charTitle = "Grand Master "
 
 }
 
 class Archmage extends GrandWizard {
-    constructor(name, favoriteFood, age, skill, fatigue, hunger, level, evolutionLevel){
-        super(name, favoriteFood, age, skill, fatigue, hunger, level, evolutionLevel);
+    constructor(name, favoriteFood, age, skill, fatigue, hunger, level, evolutionLevel, charTitle){
+        super(name, favoriteFood, age, skill, fatigue, hunger, level, evolutionLevel, charTitle);
     }
 
     evolutionLevel = 12;
+    charTitle = "Archmage ";
 
 }
 
