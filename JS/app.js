@@ -186,7 +186,7 @@ function getInput() {
     
     wizardForm = [new Wizard(newName, favoriteFood, 0, 0)];
     currentWizard = wizardForm[0];
-
+        
         $("#age").text(`Age: ${currentWizard.age}`);
         $("#fatigue").text(`Fatigue: ${currentWizard.fatigue}`);
         $("#skill").text(`Skill: ${currentWizard.level}`);
@@ -194,7 +194,7 @@ function getInput() {
         $("#feed").text(`Eat ${favoriteFood}`);
         $("#train").text(`Cast ${skillClass} `);
         $("#sleep").text(`Meditate`);
-        $(".title").text(`Baby ${newName}`);
+        $(".title").text(`${currentWizard.charTitle} ${newName}`);
         $(".instructions").slideUp(1000);
         howToPlay();
         
@@ -224,6 +224,7 @@ function wizardEvolve() {
     k += 1;
 
     currentWizard = wizardForm[k];
+    $(".title").text(`${currentWizard.charTitle} ${newName}`);
     //Image below from https://pixabay.com/photos/lego-wizard-gandalf-gray-grey-4603354/ submitted by user: aitoff.
     $(".display").attr("src", "https://cdn.pixabay.com/photo/2019/11/05/12/02/lego-4603354_960_720.jpg");
 }
