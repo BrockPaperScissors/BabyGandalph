@@ -74,6 +74,10 @@ class Wizard {
                 wizardEvolve();
                 console.log("evolution success!", currentWizard); 
             }
+            if(currentWizard.level > 9){
+                window.alert("Wow, you made it to the status of Archmage! A real Archmage!");
+                winGame();
+            }
             currentWizard.level++;
             console.log("level up!");
             currentWizard.skill = 0;
@@ -196,6 +200,11 @@ function getInput() {
 
 }
 
+function winGame() {
+        clearInterval(hungerInterval);
+        window.alert("The Wizard Sanctum approaches, and offers you a position amongst the scribes. GG");
+}
+
 function addClass(){
     console.log("suffer");
     $(".display").addClass("animatedPic");
@@ -209,12 +218,8 @@ function removeClass() {
 
 function wizardEvolve() {
     wizardForm = [new Wizard(newName, favoriteFood, 0, 0), new MatureWizard(newName, favoriteFood, age, skill, fatigue, hunger, level), new GrandWizard(newName, favoriteFood, age, skill, fatigue, hunger, level), new Archmage(newName, favoriteFood, age, skill, fatigue, hunger, level)];
-    if(k === 3) {
-        clearInterval(hungerInterval);
-        window.alert("The Wizard Sanctum approaches, and offers you a position amongst the scribes. GG");
-    }else {
+    
     k += 1;
-    }
 
     currentWizard = wizardForm[k];
     //Image below from https://pixabay.com/photos/lego-wizard-gandalf-gray-grey-4603354/ submitted by user: aitoff.
