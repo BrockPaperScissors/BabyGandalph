@@ -52,7 +52,7 @@ class Wizard {
         if (currentWizard.age >= 100) {
             currentWizard.age = 100;
             clearInterval(hungerInterval);
-            window.alert("Your skills need more work. The Wizard Sanctum's doors remain locked at this time. Try again later.")
+            window.alert("Your skills need more work. The Wizard Sanctum's doors remain locked at this time. Try again later.");
         }
             
         console.log(currentWizard.fatigue, "fatigue");
@@ -208,8 +208,14 @@ function removeClass() {
 }
 
 function wizardEvolve() {
-    wizardForm = [new Wizard(newName, favoriteFood, 0, 0), new MatureWizard(newName, favoriteFood, age, skill, fatigue, hunger, level)];
+    wizardForm = [new Wizard(newName, favoriteFood, 0, 0), new MatureWizard(newName, favoriteFood, age, skill, fatigue, hunger, level), new GrandWizard(newName, favoriteFood, age, skill, fatigue, hunger, level), new Archmage(newName, favoriteFood, age, skill, fatigue, hunger, level)];
+    if(k === 3) {
+        clearInterval(hungerInterval);
+        window.alert("The Wizard Sanctum approaches, and offers you a position amongst the scribes. GG");
+    }else {
     k += 1;
+    }
+
     currentWizard = wizardForm[k];
     //Image below from https://pixabay.com/photos/lego-wizard-gandalf-gray-grey-4603354/ submitted by user: aitoff.
     $(".display").attr("src", "https://cdn.pixabay.com/photo/2019/11/05/12/02/lego-4603354_960_720.jpg");
@@ -252,12 +258,23 @@ class MatureWizard extends Wizard {
     
 }
 
+class GrandWizard extends MatureWizard {
+    constructor(name, favoriteFood, age, skill, fatigue, hunger, level, evolutionLevel){
+        super(name, favoriteFood, age, skill, fatigue, hunger, level, evolutionLevel);
+    }
 
-// currentWizard = new Wizard(newName, favoriteFood, 0, 0);
-// function buttonClicked() {
-//     console.log("click!");
-// }
+    evolutionLevel = 9;
 
+}
+
+class Archmage extends GrandWizard {
+    constructor(name, favoriteFood, age, skill, fatigue, hunger, level, evolutionLevel){
+        super(name, favoriteFood, age, skill, fatigue, hunger, level, evolutionLevel);
+    }
+
+    evolutionLevel = 12;
+
+}
 
 currentWizard = new Wizard("", "", 0, 0);
 
