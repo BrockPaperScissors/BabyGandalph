@@ -57,9 +57,9 @@ class Wizard {
             window.alert("Your skills need more work. The Wizard Sanctum's doors remain locked at this time. Try again later.");
         }
             
-        console.log(currentWizard.fatigue, "fatigue");
-        console.log(currentWizard.skill, "skill");
-        console.log(currentWizard.age, "age");
+        // console.log(currentWizard.fatigue, "fatigue");
+        // console.log(currentWizard.skill, "skill");
+        // console.log(currentWizard.age, "age");
             $("#fatigue_bar").attr("value", currentWizard.fatigue);
             $("#fatigue").text(`Fatigue: ${currentWizard.fatigue}`);
             $("#hunger").text(`Hunger: ${currentWizard.hunger}`);
@@ -99,9 +99,9 @@ class Wizard {
             clearInterval(hungerInterval);
             window.alert("Your skills need more work. The Wizard Sanctum's doors remain locked at this time. Try again later.")
         }
-        console.log(currentWizard.fatigue, "fatigue");
-        console.log(currentWizard.skill, "skill");
-        console.log(currentWizard.age, "age");
+        // console.log(currentWizard.fatigue, "fatigue");
+        // console.log(currentWizard.skill, "skill");
+        // console.log(currentWizard.age, "age");
             $("#skill_bar").attr("value", currentWizard.skill);
             $("#skill").text(`Skill: ${currentWizard.level}`);
             $("#fatigue_bar").attr("value", currentWizard.fatigue);
@@ -127,9 +127,9 @@ class Wizard {
                 currentWizard.age = 100;
                 window.alert("Your skills need more work. The Wizard Sanctum's doors remain locked at this time. Try again later.")
             }
-        console.log(currentWizard.fatigue, "fatigue");
-        console.log(currentWizard.skill, "skill");
-        console.log(currentWizard.age, "age");
+        // console.log(currentWizard.fatigue, "fatigue");
+        // console.log(currentWizard.skill, "skill");
+        // console.log(currentWizard.age, "age");
             $("#fatigue_bar").attr("value", currentWizard.fatigue);
             $("#fatigue").text(`Fatigue: ${currentWizard.fatigue}`);
             $("#age_bar").attr("value", currentWizard.age);
@@ -227,7 +227,14 @@ function wizardEvolve() {
     currentWizard = wizardForm[k];
     $(".title").text(`${currentWizard.charTitle} ${newName}`);
     //Image below from https://pixabay.com/photos/lego-wizard-gandalf-gray-grey-4603354/ submitted by user: aitoff.
+    if (k === 1) {
     $(".display").attr("src", "https://cdn.pixabay.com/photo/2019/11/05/12/02/lego-4603354_960_720.jpg");
+    }else if (k === 3){
+    $(".display").attr("src", "https://images.squarespace-cdn.com/content/v1/50710c28c4aa65eb3b63d154/1355874855192-OWHO2WBZZA6R6YTXYW04/Gandalf_Hobbit_ChristmasGift.jpg?format=1000w");
+    $(".display").css("height", "525");
+    $(".display").css("width", "525");
+
+    }
 }
 
 class MatureWizard extends Wizard {
