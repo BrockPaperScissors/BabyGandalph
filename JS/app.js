@@ -184,6 +184,7 @@ function getInput() {
     favoriteFood = window.prompt("what is your favorite food?");
     skillClass = window.prompt("Do you choose fire ball, lightning strike, or ice blast?");
     
+    
     wizardForm = [new Wizard(newName, favoriteFood, 0, 0)];
     currentWizard = wizardForm[0];
         
